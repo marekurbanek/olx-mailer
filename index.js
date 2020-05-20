@@ -1,7 +1,13 @@
-const getPostsData = require("./postsFinder");
+const getPostsData = require("./postsSaver");
+const dotenv = require("dotenv");
 
 async function main() {
-  await getPostsData();
+  dotenv.config();
+
+  getPostsData();
+  setInterval(() => {
+    getPostsData();
+  }, 0.5 * 60000);
 }
 
 main();

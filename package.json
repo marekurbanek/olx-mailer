@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "is-promise": "^4.0.0",
     "mongodb": "^3.5.7",
     "mz": "^2.7.0",
+    "nodemailer": "^6.4.6",
     "puppeteer": "^3.1.0",
     "resemblejs": "^3.2.4",
     "webp-converter": "^2.2.3"
