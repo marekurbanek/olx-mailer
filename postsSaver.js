@@ -8,7 +8,9 @@ const getPostsData = async () => {
   const db = await makeDb();
   page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
 
-  await page.goto("https://www.olx.pl/nieruchomosci/garaze-parkingi/sprzedaz/swietochlowice/?search%5Bfilter_float_price%3Afrom%5D=12000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=5");
+  await page.goto(
+    "https://www.olx.pl/nieruchomosci/garaze-parkingi/sprzedaz/swietochlowice/?search%5Bfilter_float_price%3Afrom%5D=12000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=5"
+  );
 
   async function findAndSavePostsFromCurrentPage() {
     console.log("FINDING NEW POSTS");
@@ -31,6 +33,8 @@ const getPostsData = async () => {
         console.log("New Post", post.title);
         await db.collection("posts").insertOne(post);
         await sendNewPostEmail(post);
+      } else {
+        console.log('Post already saved');
       }
     });
     return;

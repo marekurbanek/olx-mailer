@@ -10,6 +10,7 @@ const makeDb = async () => {
     const db = client.db(dbName);
     return db;
   } catch (err) {
+    console.error('Failed to connect do database')
     console.log(err.stack);
   }
 };
